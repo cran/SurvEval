@@ -1,0 +1,4 @@
+useDynLib(SurvEval, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom(survival,coxph,basehaz,survfit)
+export("ProjectionCPE", "stCPE")
