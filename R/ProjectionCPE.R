@@ -5,13 +5,19 @@ ProjectionCPE <- function(Time, Event,StandardMarkers,NewMarkers,  tau , Block=T
   if(tau > max(Time,na.rm=TRUE)) warning("tau beyond observation times; set to observed uncensored max")
   if(tau > max(Time)) endtime <- max(Time[Event==1])
   
-  if(is.vector(StandardMarkers) | dim(StandardMarkers) [2] ==1){
+  if(is.vector(StandardMarkers)){
     StandardMarkers <- matrix(StandardMarkers)
     colnames(StandardMarkers) <- "StandardMarkers"
+  }else{
+    colnames(StandardMarkers) <- paste("SM", 1:dim(StandardMarkers)[2], sep="")
+    
   }
-  if(is.vector(NewMarkers)| dim(NewMarkers) [2] ==1){
+  if(is.vector(NewMarkers)){
     NewMarkers <- matrix(NewMarkers)
     colnames(NewMarkers) <- "NewMarkers"
+  }else{
+    colnames(NewMarkers) <- paste("NM", 1:dim(NewMarkers)[2], sep="")
+    
   }
   
   if( any(colnames(StandardMarkers) %in% colnames(NewMarkers)  )) stop("duplicate column names: please fix")

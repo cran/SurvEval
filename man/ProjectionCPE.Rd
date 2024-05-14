@@ -11,14 +11,14 @@ ProjectionCPE(Time, Event,StandardMarkers,NewMarkers, tau, Block=TRUE)
 \arguments{
   \item{Time}{Survival Time}
   \item{Event}{Event Status}
-  \item{StandardMarkers}{A vector or matrix of standard covariates.}
-  \item{NewMarkers}{A vector or matrix of new covariates.}
+  \item{StandardMarkers}{A vector or matrix of standard covariates. Unique column names should be assigned to the matrix before running this function. }
+  \item{NewMarkers}{A vector or matrix of new covariates.Unique column names should be assigned to the matrix before running this function.}
   \item{tau}{The follow-up duration for a given study. This should be no larger than the maximum observed failure time (uncensored).}
   \item{Block}{Due to the complexity of the calculation, this is an approximation that calculates the CPE using random blocks of 50 patients. Recommended for data sets larger than 150 individuals.} 
 }
 
 \value{an object with the following elements
-  \item{projCPE}{test statistic using the projection approach.}
+  \item{projCPE}{Projected CPE statistic using the standard markers. }
   }
 
 \details{
